@@ -1,57 +1,53 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-12">
-            <div class="bg-light p-4 rounded shadow-sm">
-                <h2 class="mb-4 text-primary">All Transactions</h2>
-                {% if transactions %}
-                    {% for transaction_id, details in transactions.items() %}
-                        <div class="card mb-4 border-0 shadow-sm">
-                            <div class="card-header bg-primary text-white">
-                                <h5 class="mb-0 text-black">Transaction ID: {{ transaction_id }}</h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <p><strong>Borrow Date:</strong> {{ details.borrow_date }}</p>
-                                        <p><strong>Due Date:</strong> {{ details.due_date }}</p>
-                                        <p><strong>Status:</strong> 
-                                            <span class="badge {% if details.status == 'Active' %}bg-success{% else %}bg-secondary{% endif %}">
-                                                {{ details.status }}
-                                            </span>
-                                        </p>
-                                    </div>
-                                    
-                                    {% if details.book %}
-                                        <div class="col-md-4">
-                                            <h6 class="text-primary mb-3">Book Details</h6>
-                                            <p><strong>Title:</strong> {{ details.book.title }}</p>
-                                            <p><strong>ISBN:</strong> {{ details.book.ISBN }}</p>
-                                            <p><strong>Author:</strong> {{ details.book.author }}</p>
-                                        </div>
-                                    {% endif %}
-                                    
-                                    {% if details.member %}
-                                        <div class="col-md-4">
-                                            <h6 class="text-primary mb-3">Member Details</h6>
-                                            <p><strong>Username:</strong> {{ details.member.username }}</p>
-                                            <p><strong>Member ID:</strong> {{ details.member.member_id }}</p>
-                                            <p><strong>Email:</strong> {{ details.member.email }}</p>
-                                        </div>
-                                    {% endif %}
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% else %}
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle me-2"></i> No transactions found.
+<div class="container mx-auto max-w-6xl px-4">
+    <div class="bg-white p-6 my-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold mb-6 text-center">All Transactions</h2>
+        {% if transactions %}
+            {% for transaction_id, details in transactions.items() %}
+                <div class="bg-gray-50 rounded-lg shadow-sm mb-6 overflow-hidden">
+                    <div class="bg-blue-500 text-white p-3">
+                        <h5 class="text-lg font-medium text-center">Transaction ID: {{ transaction_id }}</h5>
                     </div>
-                {% endif %}
+                    <div class="p-4">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                            <div>
+                                <p class="mb-2"><strong>Borrow Date:</strong> {{ details.borrow_date }}</p>
+                                <p class="mb-2"><strong>Due Date:</strong> {{ details.due_date }}</p>
+                                <p><strong>Status:</strong> 
+                                    <span class="px-2 py-1 rounded text-white {% if details.status == 'Active' %}bg-green-500{% else %}bg-gray-500{% endif %}">
+                                        {{ details.status }}
+                                    </span>
+                                </p>
+                            </div>
+                            
+                            {% if details.book %}
+                                <div>
+                                    <h6 class="text-blue-600 font-medium mb-3">Book Details</h6>
+                                    <p class="mb-2"><strong>Title:</strong> {{ details.book.title }}</p>
+                                    <p class="mb-2"><strong>ISBN:</strong> {{ details.book.ISBN }}</p>
+                                    <p><strong>Author:</strong> {{ details.book.author }}</p>
+                                </div>
+                            {% endif %}
+                            
+                            {% if details.member %}
+                                <div>
+                                    <h6 class="text-blue-600 font-medium mb-3">Member Details</h6>
+                                    <p class="mb-2"><strong>Username:</strong> {{ details.member.username }}</p>
+                                    <p class="mb-2"><strong>Member ID:</strong> {{ details.member.member_id }}</p>
+                                    <p><strong>Email:</strong> {{ details.member.email }}</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="bg-blue-100 text-blue-700 p-4 rounded text-center">
+                No transactions found.
             </div>
-        </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

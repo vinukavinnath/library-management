@@ -1,0 +1,6 @@
+body {
+    background-image: url('https://img.freepik.com/free-photo/christmas-concept-with-balls-presents_23-2147709905.jpg?t=st=1735068145~exp=1735071745~hmac=2850f6a05adab230aa29c546d2b1fadfabba497944d295ab45e9fbdef45b3de9&w=1060'); /* Provide the image path */
+    background-size: cover; /* Adjust image to cover the entire page */
+    background-repeat: no-repeat; /* Prevent repeating the image */
+    background-position: center; /* Center the image */
+}
