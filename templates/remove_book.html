@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto mt-10 max-w-4xl">
+    <h2 class="text-2xl font-bold mb-6">Remove Book</h2>
+    <form method="POST" class="bg-white p-6 rounded-lg shadow-md">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2">Book Title</label>
+            <input type="text" name="title" required class="w-full p-2 border rounded">
+        </div>
+        <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full">
+            Remove Book
+        </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto mt-10 max-w-4xl">
+    <h2 class="text-2xl font-bold mb-6">Search Book</h2>
+    <form method="POST" class="mb-8">
+        <div class="flex gap-4">
+            <input type="text" name="title" placeholder="Enter book title" required
+                   class="flex-1 p-2 border rounded">
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                Search
+            </button>
+        </div>
+    </form>
+
+    {% if book %}
+    <div class="bg-white p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold mb-4">Book Details</h3>
+        <dl class="grid grid-cols-2 gap-4">
+            {% for key, value in book.items() if key != 'uri' %}
+            <dt class="font-semibold">{{ key|title }}:</dt>
+            <dd>{{ value }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

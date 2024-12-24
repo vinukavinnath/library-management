@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto mt-10 max-w-4xl">
+    <h2 class="text-2xl font-bold mb-6">Administrator Dashboard</h2>
+    <div class="grid grid-cols-2 gap-4">
+        <a href="{{ url_for('add_book') }}" class="bg-blue-500 text-white p-6 rounded-lg text-center hover:bg-blue-600">
+            Add Book
+        </a>
+        <a href="{{ url_for('remove_book') }}" class="bg-red-500 text-white p-6 rounded-lg text-center hover:bg-red-600">
+            Remove Book
+        </a>
+        <a href="{{ url_for('search') }}" class="bg-green-500 text-white p-6 rounded-lg text-center hover:bg-green-600">
+            Search Book
+        </a>
+        <a href="{{ url_for('transactions') }}" class="bg-purple-500 text-white p-6 rounded-lg text-center hover:bg-purple-600">
+            View Transactions
+        </a>
+    </div>
+</div>
+{% endblock %}
