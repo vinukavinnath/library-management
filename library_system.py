@@ -4,6 +4,8 @@ from rdflib import Graph, Literal, RDF, URIRef, Namespace
 from rdflib.namespace import RDFS, XSD
 import datetime
 import uuid
+import os
+
 
 # Load RDF Ontology
 g = Graph()
@@ -13,12 +15,21 @@ except Exception as e:
     print(f"Warning: {e}. Creating new graph.")
 LIB = Namespace("http://www.library-system.org/ontology#")
 
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+RDF_PATH = os.path.join(BASE_DIR, 'library_ontology.rdf')
+
+
 class LibraryModel(Model):
     def __init__(self):
         super().__init__()
         self.schedule = RandomActivation(self)
         self.running = True
         self.graph = g
+        try:
+            self.graph.parse(RDF_PATH, format="xml")
+        except Exception as e:
+            print(f"Warning: {e}. Creating new graph.")
         self.init_agents()
     
     def save_graph(self):

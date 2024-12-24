@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto mt-10 max-w-4xl">
+    <h2 class="text-2xl font-bold mb-6">Add Book</h2>
+    <form method="POST" class="bg-white p-6 rounded-lg shadow-md">
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                <input type="text" name="title" required class="w-full p-2 border rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">ISBN</label>
+                <input type="text" name="isbn" required class="w-full p-2 border rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Author</label>
+                <input type="text" name="author" required class="w-full p-2 border rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Year</label>
+                <input type="number" name="year" required class="w-full p-2 border rounded">
+            </div>
+            <div>
+                <label class="block text-gray-700 text-sm font-bold mb-2">Category</label>
+                <input type="text" name="category" required class="w-full p-2 border rounded">
+            </div>
+        </div>
+        <button type="submit" class="mt-6 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full">
+            Add Book
+        </button>
+    </form>
+</div>
+{% endblock %}

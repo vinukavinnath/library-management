@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto mt-10 max-w-4xl">
+    <h2 class="text-2xl font-bold mb-6">Member Dashboard</h2>
+    <div class="grid grid-cols-2 gap-4">
+        <a href="{{ url_for('search') }}" class="bg-green-500 text-white p-6 rounded-lg text-center hover:bg-green-600">
+            Search Book
+        </a>
+        <a href="{{ url_for('borrow') }}" class="bg-blue-500 text-white p-6 rounded-lg text-center hover:bg-blue-600">
+            Borrow Book
+        </a>
+    </div>
+</div>
+{% endblock %}
