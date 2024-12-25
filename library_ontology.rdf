@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:lib="http://www.library-system.org/ontology#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
 >
+  <lib:Book rdf:about="http://www.library-system.org/ontology#book_6f78081f-8ca4-4c6b-9f2e-921d499058dd">
+    <lib:title>dad</lib:title>
+    <lib:ISBN>222</lib:ISBN>
+    <lib:author>asdasd</lib:author>
+    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2222</lib:year>
+    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
+    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_wdqwe"/>
+  </lib:Book>
   <lib:Book rdf:about="http://www.library-system.org/ontology#book_1">
     <lib:title>The Great Gatsby</lib:title>
     <lib:ISBN>978-0743273565</lib:ISBN>
     <lib:year>1925</lib:year>
     <lib:author>F. Scott Fitzgerald</lib:author>
     <lib:isAvailable>true</lib:isAvailable>
+    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_fiction"/>
+  </lib:Book>
+  <lib:Book rdf:about="http://www.library-system.org/ontology#book_81a076b5-31e5-45cc-95d3-cfcbe751af9e">
+    <lib:title>Nothing new</lib:title>
+    <lib:ISBN>1234</lib:ISBN>
+    <lib:author>Vinuka</lib:author>
+    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</lib:year>
+    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
+    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_new"/>
+  </lib:Book>
+  <lib:Book rdf:about="http://www.library-system.org/ontology#book_2c077321-9011-467e-8171-1b7e6f622e6d">
+    <lib:title>New Book 2</lib:title>
+    <lib:ISBN>234234</lib:ISBN>
+    <lib:author>Vinnath</lib:author>
+    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2005</lib:year>
+    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
+    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_fiction"/>
+  </lib:Book>
+  <lib:Book rdf:about="http://www.library-system.org/ontology#book_43f477d9-fee3-40ab-aa5d-1d15eba40d05">
+    <lib:title>Sample</lib:title>
+    <lib:ISBN>1234</lib:ISBN>
+    <lib:author>John Doe</lib:author>
+    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</lib:year>
+    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
     <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_fiction"/>
   </lib:Book>
   <lib:Book rdf:about="http://www.library-system.org/ontology#book_2">
@@ -21,6 +53,20 @@
     <lib:isAvailable>true</lib:isAvailable>
     <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_science"/>
   </lib:Book>
+  <owl:ObjectProperty rdf:about="http://www.library-system.org/ontology#canViewTransaction">
+    <rdfs:domain rdf:resource="http://www.library-system.org/ontology#Admin"/>
+    <rdfs:range rdf:resource="http://www.library-system.org/ontology#Transaction"/>
+    <rdfs:comment>Allows administrators to view all transactions</rdfs:comment>
+  </owl:ObjectProperty>
+  <lib:Admin rdf:about="http://www.library-system.org/ontology#admin_1">
+    <lib:username>admin_john</lib:username>
+    <lib:password>Admin123!</lib:password>
+    <lib:email>john.admin@library.com</lib:email>
+  </lib:Admin>
+  <owl:DatatypeProperty rdf:about="http://www.library-system.org/ontology#transactionStatus">
+    <rdfs:domain rdf:resource="http://www.library-system.org/ontology#Transaction"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
   <lib:Member rdf:about="http://www.library-system.org/ontology#member_1">
     <lib:username>sarah_smith</lib:username>
     <lib:password>LibraryPass123!</lib:password>
@@ -28,59 +74,28 @@
     <lib:memberID>1001</lib:memberID>
     <lib:joinDate>2024-01-15</lib:joinDate>
   </lib:Member>
-  <lib:Admin rdf:about="http://www.library-system.org/ontology#admin_1">
-    <lib:username>admin_john</lib:username>
-    <lib:password>Admin123!</lib:password>
-    <lib:email>john.admin@library.com</lib:email>
-  </lib:Admin>
-  <lib:Book rdf:about="http://www.library-system.org/ontology#book_2c077321-9011-467e-8171-1b7e6f622e6d">
-    <lib:title>New Book 2</lib:title>
-    <lib:ISBN>234234</lib:ISBN>
-    <lib:author>Vinnath</lib:author>
-    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2005</lib:year>
-    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
-    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_fiction"/>
-  </lib:Book>
-  <lib:Book rdf:about="http://www.library-system.org/ontology#book_6f78081f-8ca4-4c6b-9f2e-921d499058dd">
-    <lib:title>dad</lib:title>
-    <lib:ISBN>222</lib:ISBN>
-    <lib:author>asdasd</lib:author>
-    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2222</lib:year>
-    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</lib:isAvailable>
-    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_wdqwe"/>
-  </lib:Book>
   <owl:ObjectProperty rdf:about="http://www.library-system.org/ontology#managedBy">
     <rdfs:domain rdf:resource="http://www.library-system.org/ontology#Transaction"/>
     <rdfs:range rdf:resource="http://www.library-system.org/ontology#Admin"/>
   </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="http://www.library-system.org/ontology#transactionStatus">
-    <rdfs:domain rdf:resource="http://www.library-system.org/ontology#Transaction"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="http://www.library-system.org/ontology#canViewTransaction">
-    <rdfs:domain rdf:resource="http://www.library-system.org/ontology#Admin"/>
-    <rdfs:range rdf:resource="http://www.library-system.org/ontology#Transaction"/>
-    <rdfs:comment>Allows administrators to view all transactions</rdfs:comment>
-  </owl:ObjectProperty>
-  <lib:Transaction rdf:about="http://www.library-system.org/ontology#transaction_9092ec77-e1d5-428c-9bb6-cac47a2f70e4">
+  <lib:Book rdf:about="http://www.library-system.org/ontology#book_1ac86a9d-d0de-4499-8987-a7f655cfea10">
+    <lib:title>Sample</lib:title>
+    <lib:ISBN>1234</lib:ISBN>
+    <lib:author>John Doe</lib:author>
+    <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</lib:year>
+    <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</lib:isAvailable>
+    <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_fiction"/>
+    <lib:borrowedBy>
+      <rdf:Description rdf:about="http://www.library-system.org/ontology#member_1001">
+        <lib:hasTransaction rdf:resource="http://www.library-system.org/ontology#transaction_02eeac8e-7236-45a5-9a85-b51f24d7b015"/>
+      </rdf:Description>
+    </lib:borrowedBy>
+  </lib:Book>
+  <lib:Transaction rdf:about="http://www.library-system.org/ontology#transaction_02eeac8e-7236-45a5-9a85-b51f24d7b015">
     <lib:borrowDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-12-25</lib:borrowDate>
     <lib:dueDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2025-01-24</lib:dueDate>
-    <lib:involvesBook>
-      <lib:Book rdf:about="http://www.library-system.org/ontology#book_81a076b5-31e5-45cc-95d3-cfcbe751af9e">
-        <lib:title>Nothing new</lib:title>
-        <lib:ISBN>1234</lib:ISBN>
-        <lib:author>Vinuka</lib:author>
-        <lib:year rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2000</lib:year>
-        <lib:isAvailable rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</lib:isAvailable>
-        <lib:hasCategory rdf:resource="http://www.library-system.org/ontology#category_new"/>
-        <lib:borrowedBy rdf:resource="http://www.library-system.org/ontology#member_1001"/>
-      </lib:Book>
-    </lib:involvesBook>
+    <lib:involvesBook rdf:resource="http://www.library-system.org/ontology#book_1ac86a9d-d0de-4499-8987-a7f655cfea10"/>
     <lib:transactionStatus>Active</lib:transactionStatus>
-    <lib:hasTransaction>
-      <rdf:Description rdf:about="http://www.library-system.org/ontology#member_1001">
-        <lib:hasTransaction rdf:resource="http://www.library-system.org/ontology#transaction_9092ec77-e1d5-428c-9bb6-cac47a2f70e4"/>
-      </rdf:Description>
-    </lib:hasTransaction>
+    <lib:hasTransaction rdf:resource="http://www.library-system.org/ontology#member_1001"/>
   </lib:Transaction>
 </rdf:RDF>
